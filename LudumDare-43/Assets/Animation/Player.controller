@@ -20,7 +20,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Magnitute
+  - m_Name: Magnitude
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -109,7 +109,7 @@ BlendTree:
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   m_BlendParameter: Horizontal
-  m_BlendParameterY: Blend
+  m_BlendParameterY: Vertical
   m_MinThreshold: 0
   m_MaxThreshold: 5
   m_UseAutomaticThresholds: 0
@@ -123,7 +123,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Magnitute
+    m_ConditionEvent: Magnitude
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102177967946609376}
@@ -147,7 +147,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Magnitute
+    m_ConditionEvent: Magnitude
     m_EventTreshold: 0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102037944115278368}
