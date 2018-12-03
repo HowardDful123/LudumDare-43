@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public float moveSpeed = 3f;
     public Animator animator;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
+    [Header("Unity CHARSTAT!")]
+    public Text movememtstat;
+
+    // Update is called once per frame
+    void Update () {
+        movememtstat.text = "Speed: " + moveSpeed.ToString("F2");
 
 
         //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);

@@ -9,7 +9,7 @@ public class bullet : MonoBehaviour {
     public GameObject impactEffect;
 
     private Transform targetPlayer;
-    private float lifetime = 0.3f;
+    private float lifetime = 0.7f;
     // Use this for initialization
     void Start()
     {

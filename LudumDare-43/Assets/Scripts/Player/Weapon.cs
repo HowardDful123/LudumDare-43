@@ -12,15 +12,23 @@ public class Weapon : MonoBehaviour {
     public int ammoCapcity = 20;
     public int currentAmmo = 20;
     public float reloadTime;
+    public Text ammotext;
     public Image reloadingBar;
-    public AudioSource reloadingsound, shootingsound;
+    public AudioSource reloadingsound, shootingsound, crackinggun;
 
+    [Header("Unity CHARSTAT!")]
+    public Text fireratestat;
+    public Text weaponlevelstat;
+
+    [SerializeField]
+    WaveSpawner spawner;
+
+    private WaveSpawner.SpawnState previousState;
     private bool isLifeSteal;
     private float firecounter;
     private float reloadCounter;
     private bool isReloading;
     public int weaponLevel = 0;
-   
     private bool justShot;
 
     public bool IsLifeSteal
@@ -38,11 +46,25 @@ public class Weapon : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-	}
+        previousState = spawner.State;
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        ammotext.text = "Ammo: " + currentAmmo + "/" + ammoCapcity;
+        if (weaponLevel < 3)
+        {
+            weaponlevelstat.text = "Shooting " + (weaponLevel + 1) + " Projectiles";
+        }
+        else if (weaponLevel == 3)
+        {
+            weaponlevelstat.text = "Shooting " + (weaponLevel + 5) + " Projectiles";
+        }
+        else if (weaponLevel >= 4)
+        {
+            weaponlevelstat.text = "Shooting " + 6 + " Projectiles and lifestealing [MAXED]" ;
+        }
+        fireratestat.text = "Firerate: " + fireRate.ToString("F2");
 
         if (Input.GetKeyDown("r"))
         {
@@ -53,7 +75,10 @@ public class Weapon : MonoBehaviour {
         {
             if (!justShot)
             {
-                Shoot();
+                if (spawner.State != previousState)
+                {
+                    Shoot();
+                }
             }
         }
 
@@ -61,6 +86,7 @@ public class Weapon : MonoBehaviour {
         {
             if (!reloadingsound.isPlaying)
             {
+                StopPlayingSound(crackinggun);
                 PlaySound(reloadingsound);
             }
             reloadCounter += Time.deltaTime;
@@ -87,21 +113,29 @@ public class Weapon : MonoBehaviour {
 
     void Shoot()
     {
+        if (!isReloading && currentAmmo <= 0)
+        {
+            if (!crackinggun.isPlaying)
+            {
+                PlaySound(crackinggun);
+            }
+        }
+
         if (!isReloading && currentAmmo > 0)
         {
             if (weaponLevel == 0) Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-            if (weaponLevel == 1)
+            else if (weaponLevel == 1)
             {
                 Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
                 Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
             }
-            if (weaponLevel == 2)
+            else if (weaponLevel == 2)
             {
                 Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
                 Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
                 Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
             }
-            if (weaponLevel == 3)
+            else if (weaponLevel == 3)
             {
                 Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
                 Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
@@ -109,7 +143,7 @@ public class Weapon : MonoBehaviour {
                 Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
                 Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
             }
-            if (weaponLevel >= 4)
+            else if (weaponLevel >= 4)
             {
                 isLifeSteal = true;
                 Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);

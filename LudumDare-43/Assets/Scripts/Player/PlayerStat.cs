@@ -7,9 +7,10 @@ public class PlayerStat : MonoBehaviour {
     public float health = 50f;
     public int gunDamage = 10;
 
-    [Header("Unity HEALTH!")]
+    [Header("Unity CHARSTAT!")]
     public Image healthBar;
     public Text healthText;
+    public Text damagestat;
 
     private float timeElapsedColor;
     private bool isColorChanged;
@@ -20,7 +21,7 @@ public class PlayerStat : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
+        damagestat.text = "Damage: " + gunDamage;
         healthText.text = currentHealth + "/" + health;
 
         if (isColorChanged)
