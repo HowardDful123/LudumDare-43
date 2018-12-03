@@ -2,12 +2,13 @@
 using UnityEngine;
 
 public class Weapon : MonoBehaviour {
-    public Transform shootingPoint;
+    public Transform shootingPoint, muzzleflashpoint;
     public Transform shootingPointleft;
     public Transform shootingPointfarleft;
     public Transform shootingPointright;
     public Transform shootingPointfarright;
-    public Transform BulletTrailPrefab;
+    public Transform muzzleFlashPrefab;
+    public Transform bulletTrailPrefab;
     public float fireRate = 1.2f;
     public int ammoCapcity = 20;
     public int currentAmmo = 20;
@@ -64,8 +65,7 @@ public class Weapon : MonoBehaviour {
         {
             weaponlevelstat.text = "Shooting " + 6 + " Projectiles and lifestealing [MAXED]" ;
         }
-        fireratestat.text = "Firerate: " + fireRate.ToString("F2");
-
+        fireratestat.text = "Firerate: Shooting every " + fireRate.ToString("F2") + " second";
         if (Input.GetKeyDown("r"))
         {
             Reload();
@@ -77,7 +77,14 @@ public class Weapon : MonoBehaviour {
             {
                 if (spawner.State != previousState)
                 {
-                    Shoot();
+                    if (currentAmmo <= 0)
+                    {
+                        Reload();
+                    }
+                    else
+                    {
+                        Shoot();
+                    }
                 }
             }
         }
@@ -123,34 +130,62 @@ public class Weapon : MonoBehaviour {
 
         if (!isReloading && currentAmmo > 0)
         {
-            if (weaponLevel == 0) Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+            if (weaponLevel == 0)
+            {
+                Transform clone = Instantiate(muzzleFlashPrefab, muzzleflashpoint.position, muzzleflashpoint.rotation);
+                clone.parent = shootingPoint;
+                float size = Random.Range(0.19f, 0.25f);
+                clone.localScale = new Vector3(size, size, size);
+                Destroy(clone.gameObject, 0.09f);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+            }
             else if (weaponLevel == 1)
             {
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Transform clone = Instantiate(muzzleFlashPrefab, muzzleflashpoint.position, muzzleflashpoint.rotation);
+                clone.parent = shootingPoint;
+                float size = Random.Range(0.2f, 0.3f);
+                clone.localScale = new Vector3(size, size, size);
+                Destroy(clone.gameObject, 0.09f);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
             }
             else if (weaponLevel == 2)
             {
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Transform clone = Instantiate(muzzleFlashPrefab, muzzleflashpoint.position, muzzleflashpoint.rotation);
+                clone.parent = shootingPoint;
+                float size = Random.Range(0.3f, 0.5f);
+                clone.localScale = new Vector3(size, size, size);
+                Destroy(clone.gameObject, 0.09f);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
             }
             else if (weaponLevel == 3)
             {
-                Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
+                Transform clone = Instantiate(muzzleFlashPrefab, muzzleflashpoint.position, muzzleflashpoint.rotation);
+                clone.parent = shootingPoint;
+                float size = Random.Range(0.5f, 0.65f);
+                clone.localScale = new Vector3(size, size, size);
+                Destroy(clone.gameObject, 0.09f);
+                Instantiate(bulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
             }
             else if (weaponLevel >= 4)
             {
                 isLifeSteal = true;
-                Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
+                Transform clone = Instantiate(muzzleFlashPrefab, muzzleflashpoint.position, muzzleflashpoint.rotation);
+                clone.parent = shootingPoint;
+                float size = Random.Range(0.6f, 0.9f);
+                clone.localScale = new Vector3(size, size, size);
+                Destroy(clone.gameObject, 0.09f);
+                Instantiate(bulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
             }
             PlaySound(shootingsound);
             currentAmmo--;
@@ -178,4 +213,5 @@ public class Weapon : MonoBehaviour {
     {
         sound.Stop();
     }
+
 }

@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 20
   rb: {fileID: 50504943363928224}
   damage: 5
-  impactEffect: {fileID: 1676626673084790, guid: 09ce7455fff681a409a66a01e7fe257f,
+  impactEffect: {fileID: 4029685711785736, guid: 09ce7455fff681a409a66a01e7fe257f,
     type: 2}
 --- !u!212 &212085830682721350
 SpriteRenderer:

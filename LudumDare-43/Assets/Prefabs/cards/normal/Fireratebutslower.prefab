@@ -131,6 +131,7 @@ MonoBehaviour:
   cardsStuffleft: {fileID: 0}
   cardsStuffMiddle: {fileID: 0}
   cardsStuffRight: {fileID: 0}
+  fireratestat: {fileID: 0}
   fireratePowerup: 0
   movespeedSacrifice: 0
   effectSacrifice: {fileID: 114595460895765198}
@@ -411,7 +412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -204.68245, y: 129.0621}
   m_SizeDelta: {x: 174.3, y: 334.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224282281051841434
