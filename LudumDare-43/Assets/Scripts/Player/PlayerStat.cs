@@ -49,7 +49,7 @@ public class PlayerStat : MonoBehaviour {
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount = currentHealth / health;
+        FillHealthBar();
         ChangeColor();
     }
 
@@ -64,5 +64,10 @@ public class PlayerStat : MonoBehaviour {
     {
         SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
         sr.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    public void FillHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / health;
     }
 }

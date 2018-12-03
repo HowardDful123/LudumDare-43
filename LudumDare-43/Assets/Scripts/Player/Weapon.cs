@@ -7,7 +7,8 @@ public class Weapon : MonoBehaviour {
     public Transform shootingPointfarleft;
     public Transform shootingPointright;
     public Transform shootingPointfarright;
-    public Transform BulletTrailPrefab;
+    public Transform muzzleFlashPrefab;
+    public Transform bulletTrailPrefab;
     public float fireRate = 1.2f;
     public int ammoCapcity = 20;
     public int currentAmmo = 20;
@@ -64,8 +65,7 @@ public class Weapon : MonoBehaviour {
         {
             weaponlevelstat.text = "Shooting " + 6 + " Projectiles and lifestealing [MAXED]" ;
         }
-        fireratestat.text = "Firerate: " + fireRate.ToString("F2");
-
+        fireratestat.text = "Firerate: Shooting every " + fireRate.ToString("F2") + " second";
         if (Input.GetKeyDown("r"))
         {
             Reload();
@@ -123,34 +123,34 @@ public class Weapon : MonoBehaviour {
 
         if (!isReloading && currentAmmo > 0)
         {
-            if (weaponLevel == 0) Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+            if (weaponLevel == 0) Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
             else if (weaponLevel == 1)
             {
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
             }
             else if (weaponLevel == 2)
             {
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
             }
             else if (weaponLevel == 3)
             {
-                Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
             }
             else if (weaponLevel >= 4)
             {
                 isLifeSteal = true;
-                Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
-                Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Instantiate(bulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
             }
             PlaySound(shootingsound);
             currentAmmo--;
@@ -177,5 +177,10 @@ public class Weapon : MonoBehaviour {
     void StopPlayingSound(AudioSource sound)
     {
         sound.Stop();
+    }
+
+    void Effect()
+    {
+
     }
 }

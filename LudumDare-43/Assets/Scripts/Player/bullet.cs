@@ -42,11 +42,11 @@ public class bullet : MonoBehaviour {
                 if (targetPlayer.GetComponent<PlayerStat>().currentHealth < targetPlayer.GetComponent<PlayerStat>().health)
                 {
                     targetPlayer.GetComponent<PlayerStat>().currentHealth += damage;
-                    targetPlayer.GetComponent<PlayerStat>().healthBar.fillAmount = targetPlayer.GetComponent<PlayerStat>().currentHealth /
-                                                                            targetPlayer.GetComponent<PlayerStat>().health;
+                    targetPlayer.GetComponent<PlayerStat>().FillHealthBar();
                     if (targetPlayer.GetComponent<PlayerStat>().currentHealth >= targetPlayer.GetComponent<PlayerStat>().health)
                     {
                         targetPlayer.GetComponent<PlayerStat>().currentHealth = targetPlayer.GetComponent<PlayerStat>().health;
+                        targetPlayer.GetComponent<PlayerStat>().FillHealthBar();
                     }
                 }
             }
