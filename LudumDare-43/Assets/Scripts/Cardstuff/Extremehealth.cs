@@ -18,7 +18,7 @@ public class Extremehealth : MonoBehaviour {
         damageToSacrifice = Random.Range(5, 11);
         movespeedSacrifice = Random.Range(0.2f, 0.8f);
         firerateToSacrifice = Random.Range(0.1f, 0.3f);
-        healthPowerup = Random.Range(100, 200);
+        healthPowerup = Random.Range(300, 500);
         powerUpText.text = "+" + healthPowerup.ToString() + " Health";
         effectSacrifice.text = "-" + damageToSacrifice.ToString() + " damage, -"
                                 + movespeedSacrifice.ToString("F2") + " speed, -" + firerateToSacrifice.ToString("F2")

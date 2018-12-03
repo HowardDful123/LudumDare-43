@@ -161,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f32d0b4d9c21ce478252cdee52e7b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardsStuffleft: {fileID: 0}
+  cardsStuffMiddle: {fileID: 0}
+  cardsStuffRight: {fileID: 0}
   speedPowerup: 0
   healthToSacrifice: 0
   effectSacrifice: {fileID: 114204068075815878}
@@ -213,7 +216,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f35c6cdc76d62e844b03960e9c55650e, type: 3}
-    m_FontSize: 10
+    m_FontSize: 9
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -224,7 +227,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -2 Health
+  m_Text: -2 Health for
 --- !u!114 &114386327596783342
 MonoBehaviour:
   m_ObjectHideFlags: 1

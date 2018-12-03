@@ -818,8 +818,8 @@ MonoBehaviour:
   BulletTrailPrefab: {fileID: 4648013904323248, guid: 0bd6d98a0c484c2428c3ec204d702f7d,
     type: 2}
   fireRate: 1
-  ammoCapcity: 20
-  currentAmmo: 20
+  ammoCapcity: 100
+  currentAmmo: 100
   reloadTime: 2
   ammotext: {fileID: 1269598929}
   reloadingBar: {fileID: 1252269550}
@@ -1493,6 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40757910d78884746b254870dd3a377c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wavenumber: {fileID: 583287869}
   cardWaveNext: {fileID: 1620092660}
   cardCountD: {fileID: 1682525739}
   cardsStuffleft: {fileID: 101070854}
@@ -1511,14 +1512,14 @@ MonoBehaviour:
   - {fileID: 1820363525}
   - {fileID: 1812631123}
   waves:
-  - name: 1
+  - name: Begining
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     count: 5
     rate: 1
-  - name: 2
+  - name: Rookie
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
@@ -1532,14 +1533,14 @@ MonoBehaviour:
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
     count: 30
     rate: 2
-  - name: 4
+  - name: How was that?
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     count: 15
     rate: 1.5
-  - name: 5
+  - name: Still Ok?
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
@@ -1557,7 +1558,7 @@ MonoBehaviour:
     - {fileID: 1073892775227388, guid: 3e8e4a054f115b34ebba6615911eb1b3, type: 2}
     count: 50
     rate: 2
-  - name: 7
+  - name: Stop Tryharding
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
@@ -1565,7 +1566,7 @@ MonoBehaviour:
     - {fileID: 1073892775227388, guid: 3e8e4a054f115b34ebba6615911eb1b3, type: 2}
     count: 25
     rate: 1.5
-  - name: 8
+  - name: Firerate=OP
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
@@ -1583,7 +1584,7 @@ MonoBehaviour:
     - {fileID: 1073892775227388, guid: 3e8e4a054f115b34ebba6615911eb1b3, type: 2}
     count: 75
     rate: 2
-  - name: 10
+  - name: Getting hard now
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
@@ -1591,7 +1592,7 @@ MonoBehaviour:
     - {fileID: 1073892775227388, guid: 3e8e4a054f115b34ebba6615911eb1b3, type: 2}
     count: 35
     rate: 2
-  - name: 11
+  - name: Is this hard?
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
@@ -1606,14 +1607,14 @@ MonoBehaviour:
     - {fileID: 1073892775227388, guid: 3e8e4a054f115b34ebba6615911eb1b3, type: 2}
     count: 100
     rate: 2
-  - name: 13
+  - name: You're getting there
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
     - {fileID: 1073892775227388, guid: 3e8e4a054f115b34ebba6615911eb1b3, type: 2}
     count: 45
     rate: 2
-  - name: 14
+  - name: Almost there
     enemies:
     - {fileID: 1473853326051470, guid: 97049324b64273b46a7ebc16e708ba6d, type: 2}
     - {fileID: 1853891629294310, guid: cda073df853d98444a79d1d8a29ceb0d, type: 2}
@@ -1682,6 +1683,81 @@ Transform:
   m_Father: {fileID: 60524567}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &583287867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583287868}
+  - component: {fileID: 583287870}
+  - component: {fileID: 583287869}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &583287868
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583287867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1066355373}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 192.6, y: 32.399994}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &583287869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583287867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: f35c6cdc76d62e844b03960e9c55650e, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Wave 1 of 15
+--- !u!222 &583287870
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583287867}
+  m_CullTransparentMesh: 0
 --- !u!1001 &610079380
 Prefab:
   m_ObjectHideFlags: 0
@@ -2257,6 +2333,7 @@ RectTransform:
   m_Children:
   - {fileID: 1774139089}
   - {fileID: 766043841}
+  - {fileID: 583287868}
   m_Father: {fileID: 412898285}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4800,8 +4877,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300.5, y: 70.9}
+  m_AnchoredPosition: {x: 0, y: -4.4}
+  m_SizeDelta: {x: 300.5, y: 79.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887425156
 MonoBehaviour:
@@ -4838,7 +4915,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f35c6cdc76d62e844b03960e9c55650e, type: 3}
-    m_FontSize: 33
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4849,7 +4926,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: You're getting there
 --- !u!222 &1887425158
 CanvasRenderer:
   m_ObjectHideFlags: 0

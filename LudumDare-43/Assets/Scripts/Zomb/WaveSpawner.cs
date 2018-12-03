@@ -15,6 +15,7 @@ public class WaveSpawner : MonoBehaviour {
         public int count;
         public float rate;
     }
+    public Text wavenumber;
     public Text cardWaveNext;
     public Text cardCountD; 
     public Transform cardsStuffleft;
@@ -49,6 +50,7 @@ public class WaveSpawner : MonoBehaviour {
     void Start()
     {
         cardWaveNext.text = "Wave next: " + waves[nextWave].name;
+        wavenumber.text = "Wave " + (nextWave+1) + " of " + "15";
         cardsStuffleft.GetComponent<normalSprite>().SpawnCard("normalcard");
         cardsStuffMiddle.GetComponent<normalSprite>().SpawnCard("normalcardMid");
         cardsStuffRight.GetComponent<normalSprite>().SpawnCard("normalcardRight");
@@ -196,6 +198,7 @@ public class WaveSpawner : MonoBehaviour {
         else
         {
             nextWave++;
+            wavenumber.text = "Wave " + (nextWave + 1) + " of " + "15";
             StartCoroutine(CardChoose());
         }
 
