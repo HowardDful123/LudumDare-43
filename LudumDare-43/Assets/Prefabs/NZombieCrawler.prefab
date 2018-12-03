@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 61610372930191916}
   - component: {fileID: 50482644323283384}
   - component: {fileID: 114926783168686394}
+  - component: {fileID: 95841385814047166}
   m_Layer: 0
   m_Name: NZombieCrawler
   m_TagString: NZombie
@@ -54,8 +55,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853891629294310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.10774, y: -2.9959922, z: -0.007123898}
-  m_LocalScale: {x: 5.4195, y: 4.4452, z: 1}
+  m_LocalPosition: {x: 1.8415531, y: -1.8586296, z: -0.007123898}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4975452912208734}
   m_Father: {fileID: 0}
@@ -108,7 +109,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 5
 --- !u!61 &61610372930191916
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -121,19 +122,37 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.037043333, y: 0.004937172}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.5111644, y: 0.7332127}
   m_EdgeRadius: 0
+--- !u!95 &95841385814047166
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853891629294310}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77a70778171f22d44b124c4c0fe20a97, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114926783168686394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   baseTarget: {fileID: 0}
-  attackRange: 1.25
+  attackRange: 1.1
   damage: 3
   attackDelay: 1
 --- !u!114 &114957577124198418
@@ -196,8 +215,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.15811014, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a596b43fac953cb40a43b88480d463a7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

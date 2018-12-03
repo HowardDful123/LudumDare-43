@@ -127,6 +127,6 @@ public class Heavy : MonoBehaviour {
     private void ResetColor()
     {
         SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
-        sr.color = new Color(0f, 0.02083302f, 1f, 1f);
+        sr.color = new Color(1f, 1f, 1f, 1f);
     }
 }
