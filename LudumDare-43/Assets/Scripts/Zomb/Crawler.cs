@@ -13,7 +13,7 @@ public class Crawler : MonoBehaviour {
     private float timeElapsedColor;
     private bool isColorChanged;
     private float lastAttack;
-    private float speed = 2f;
+    private float speed = 3f;
     private Transform playerTarget;
 
     public Transform PlayerTarget
@@ -31,7 +31,7 @@ public class Crawler : MonoBehaviour {
 
     private void Start()
     {
-        baseTarget = GameObject.Find("Base").GetComponent<Transform>();
+        baseTarget = GameObject.FindGameObjectWithTag("Base").GetComponent<Transform>();
     }
 
     void Update()
@@ -48,6 +48,19 @@ public class Crawler : MonoBehaviour {
                 }
             }
         }
+        if (baseTarget != null)
+        {
+            float distanceToBase = Vector3.Distance(transform.position, baseTarget.position);
+            if (distanceToBase < attackRange)
+            {
+                if (Time.time > lastAttack + attackDelay)
+                {
+                    baseTarget.SendMessage("Damagetobase", damage);
+                    lastAttack = Time.time;
+                }
+            }
+        }
+
         if (isColorChanged)
         {
             timeElapsedColor += Time.deltaTime;
@@ -79,6 +92,11 @@ public class Crawler : MonoBehaviour {
         if (PlayerTarget == null)
         {
             transform.position = Vector2.MoveTowards(transform.position, baseTarget.position, speed * Time.deltaTime);
+            Vector2 direction = new Vector2(
+            baseTarget.position.x - transform.position.x,
+            baseTarget.position.y - transform.position.y
+            );
+            transform.up = direction;
         }
     }
 
@@ -87,6 +105,11 @@ public class Crawler : MonoBehaviour {
         if (PlayerTarget != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, PlayerTarget.position, speed * Time.deltaTime);
+            Vector2 direction = new Vector2(
+            playerTarget.position.x - transform.position.x,
+            playerTarget.position.y - transform.position.y
+            );
+            transform.up = direction;
         }
     }
 

@@ -6,6 +6,12 @@ TagManager:
   tags:
   - NZombie
   - Base
+  - normalcard
+  - normalcardMid
+  - normalcardRight
+  - nightmarecardL
+  - nightmarecardM
+  - nightmarecardR
   layers:
   - Default
   - TransparentFX

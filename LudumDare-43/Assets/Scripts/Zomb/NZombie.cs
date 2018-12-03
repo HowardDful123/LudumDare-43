@@ -8,11 +8,12 @@ public class NZombie : MonoBehaviour {
     public float attackRange;
     public int damage = 20;
     public float attackDelay = 1;
+    public float speed = 1f;
 
     private float timeElapsedColor;
     private bool isColorChanged;
     private float lastAttack;
-    private float speed = 0.5f;
+
     private Transform playerTarget;
 
     public Transform PlayerTarget
@@ -28,9 +29,9 @@ public class NZombie : MonoBehaviour {
         }
     }
 
-    private void Start()
+    void Start()
     {
-        baseTarget = GameObject.Find("Base").GetComponent<Transform>();
+        baseTarget = GameObject.FindGameObjectWithTag("Base").GetComponent<Transform>();
     }
 
     void Update()
@@ -38,6 +39,7 @@ public class NZombie : MonoBehaviour {
         if (PlayerTarget != null)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, PlayerTarget.position);
+            
             if (distanceToPlayer < attackRange)
             {
                 if (Time.time > lastAttack + attackDelay)
@@ -47,6 +49,20 @@ public class NZombie : MonoBehaviour {
                 }
             }
         }
+
+        if (baseTarget != null && PlayerTarget == null)
+        {
+            float distanceToBase = Vector3.Distance(transform.position, baseTarget.position);
+            if (distanceToBase < attackRange)
+            {
+                if (Time.time > lastAttack + attackDelay)
+                {
+                    baseTarget.SendMessage("Damagetobase", damage);
+                    lastAttack = Time.time;
+                }
+            }
+        }
+
         if (isColorChanged)
         {
             timeElapsedColor += Time.deltaTime;
@@ -68,7 +84,7 @@ public class NZombie : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         health -= damage;
-
+        ChangeColor();
         if (health <= 0) Die();
     }
 
@@ -77,6 +93,11 @@ public class NZombie : MonoBehaviour {
         if (PlayerTarget == null)
         {
             transform.position = Vector2.MoveTowards(transform.position, baseTarget.position, speed * Time.deltaTime);
+            Vector2 direction = new Vector2(
+            baseTarget.position.x - transform.position.x,
+            baseTarget.position.y - transform.position.y
+            );
+            transform.up = direction;
         }
     }
 
@@ -85,6 +106,11 @@ public class NZombie : MonoBehaviour {
         if (PlayerTarget != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, PlayerTarget.position, speed * Time.deltaTime);
+            Vector2 direction = new Vector2(
+            playerTarget.position.x - transform.position.x,
+            playerTarget.position.y - transform.position.y
+            );
+            transform.up = direction;
         }
     }
 

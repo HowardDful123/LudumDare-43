@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4975452912208734}
   - component: {fileID: 58895176062316744}
-  - component: {fileID: 114004717906244784}
+  - component: {fileID: 114957577124198418}
   m_Layer: 0
   m_Name: crawlerrange
   m_TagString: Untagged
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853891629294310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.46, y: 1.331, z: -0.007123898}
+  m_LocalPosition: {x: -3.10774, y: -2.9959922, z: -0.007123898}
   m_LocalScale: {x: 5.4195, y: 4.4452, z: 1}
   m_Children:
   - {fileID: 4975452912208734}
@@ -134,17 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114004717906244784
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1214131908111752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba879fe7f40b524f857dde11258e1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114926783168686394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +143,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69b206c7074a9c348bf13ce77d24dd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  baseTarget: {fileID: 0}
+  attackRange: 1.25
+  damage: 3
+  attackDelay: 1
+--- !u!114 &114957577124198418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214131908111752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ca9c64b53a2cc41b5e7e845364887c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212272680251521330

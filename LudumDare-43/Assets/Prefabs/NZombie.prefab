@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4218612414743358}
   - component: {fileID: 58130570789793076}
-  - component: {fileID: 114542203341634988}
+  - component: {fileID: 114502031199895430}
   m_Layer: 0
   m_Name: range
   m_TagString: Untagged
@@ -145,8 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459861bf7983ca645ac92fac559bbb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
---- !u!114 &114542203341634988
+  health: 20
+  baseTarget: {fileID: 0}
+  attackRange: 1.25
+  damage: 5
+  attackDelay: 1
+  speed: 1
+--- !u!114 &114502031199895430
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
