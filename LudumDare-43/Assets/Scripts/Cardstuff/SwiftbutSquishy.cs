@@ -26,7 +26,7 @@ public class SwiftbutSquishy : MonoBehaviour {
 
     public void Sacrificehealthforspeed()
     {
-        targetPlayer.GetComponent<PlayerStat>().currentHealth -= healthToSacrifice;
+        targetPlayer.SendMessage("TakeDamage", healthToSacrifice);
         targetPlayer.GetComponent<PlayerMovement>().moveSpeed += speedPowerup;
 
         DeleteCard();
