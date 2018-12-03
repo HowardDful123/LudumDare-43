@@ -13,8 +13,8 @@ public class SwiftbutSquishy : MonoBehaviour {
     public Text powerUpText;
     // Use this for initialization
     void Start () {
-        healthToSacrifice = Random.Range(2, 4);
-        speedPowerup = Random.Range(1, 3);  
+        healthToSacrifice = Random.Range(5, 13);
+        speedPowerup = Random.Range(1, 4);  
         powerUpText.text = "+" + speedPowerup.ToString() + " Speed";
         effectSacrifice.text = "-" + healthToSacrifice.ToString() + " health for";
         cardsStuffleft = GameObject.FindGameObjectWithTag("normalcard").transform;
