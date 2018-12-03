@@ -14,8 +14,8 @@ public class HealthForDamage : MonoBehaviour {
 
     void Start()
     {
-        healthToSacrifice = Random.Range(2,5);
-        damagePowerup = Random.Range(2,5);
+        healthToSacrifice = Random.Range(2,6);
+        damagePowerup = Random.Range(3,11);
         powerUpText.text = "+" + damagePowerup.ToString() + " gun damage";
         effectSacrifice.text = "-" + healthToSacrifice.ToString() + " health for";
         cardsStuffleft = GameObject.FindGameObjectWithTag("normalcard").transform;

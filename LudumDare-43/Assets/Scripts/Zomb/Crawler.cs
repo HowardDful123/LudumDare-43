@@ -128,7 +128,7 @@ public class Crawler : MonoBehaviour {
     private void ResetColor()
     {
         SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
-        sr.color = new Color(0f, 1f, 0.1581101f, 1f);
+        sr.color = new Color(1f, 1f, 1f, 1f);
     }
 
 }
