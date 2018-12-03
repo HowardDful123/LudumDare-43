@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour {
-    public GameObject player;
+    [SerializeField]
+    private float offset;
+    [SerializeField]
+    private float xMax;
+    [SerializeField]
+    private float yMax;
+    [SerializeField]
+    private float xMin;
+    [SerializeField]
+    private float yMin;
 
-    private Vector3 offset;
-	// Use this for initialization
-	void Start () {
-        offset = transform.position - player.transform.position;
-	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
-        transform.position = player.transform.position + offset;
+    public Transform player;
 
+    void LateUpdate()
+    {
+        transform.position = new Vector3(Mathf.Clamp(player.position.x, xMin, xMax), Mathf.Clamp(player.position.y, yMin, yMax), transform.position.z);
     }
 }

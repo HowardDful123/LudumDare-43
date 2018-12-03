@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour {
@@ -9,17 +8,34 @@ public class Weapon : MonoBehaviour {
     public Transform shootingPointright;
     public Transform shootingPointfarright;
     public Transform BulletTrailPrefab;
-    public float fireRate = 0;
-    public float damage = 10;
-    public int ammoCapcity = 10;
-    public int currentAmmo = 10;
-    public float reloadTime = 2f;
+    public float fireRate = 1.2f;
+    public int ammoCapcity = 20;
+    public int currentAmmo = 20;
+    public float reloadTime;
+    public Image reloadingBar;
+    public AudioSource reloadingsound, shootingsound;
 
+    private bool isLifeSteal;
+    private float firecounter;
     private float reloadCounter;
     private bool isReloading;
     public int weaponLevel = 0;
    
     private bool justShot;
+
+    public bool IsLifeSteal
+    {
+        get
+        {
+            return isLifeSteal;
+        }
+
+        set
+        {
+            isLifeSteal = value;
+        }
+    }
+
     // Use this for initialization
     void Start () {
         
@@ -43,9 +59,15 @@ public class Weapon : MonoBehaviour {
 
         if (isReloading)    
         {
+            if (!reloadingsound.isPlaying)
+            {
+                PlaySound(reloadingsound);
+            }
             reloadCounter += Time.deltaTime;
+            reloadingBar.fillAmount = reloadCounter / 2f;
             if (reloadCounter >= reloadTime)
             {
+                StopPlayingSound(reloadingsound);
                 reloadCounter = 0f;
                 currentAmmo = ammoCapcity;
                 isReloading = false;
@@ -54,10 +76,10 @@ public class Weapon : MonoBehaviour {
 
         if (justShot)
         {
-            fireRate += Time.deltaTime;
-            if (fireRate >= 0.5)
+            firecounter += Time.deltaTime;
+            if (firecounter >= fireRate)
             {
-                fireRate = 0f;
+                firecounter = 0f;
                 justShot = false;
             }
         }
@@ -87,6 +109,16 @@ public class Weapon : MonoBehaviour {
                 Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
                 Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
             }
+            if (weaponLevel >= 4)
+            {
+                isLifeSteal = true;
+                Instantiate(BulletTrailPrefab, shootingPointfarleft.position, shootingPoint.rotation);
+                Instantiate(BulletTrailPrefab, shootingPointleft.position, shootingPoint.rotation);
+                Instantiate(BulletTrailPrefab, shootingPoint.position, shootingPoint.rotation);
+                Instantiate(BulletTrailPrefab, shootingPointright.position, shootingPoint.rotation);
+                Instantiate(BulletTrailPrefab, shootingPointfarright.position, shootingPoint.rotation);
+            }
+            PlaySound(shootingsound);
             currentAmmo--;
             justShot = true;
         }
@@ -95,9 +127,21 @@ public class Weapon : MonoBehaviour {
 
     void Reload()
     {
-        if (currentAmmo < 10)
+        if (currentAmmo < ammoCapcity)
         {
             isReloading = true;
         }
+    }
+
+    void PlaySound(AudioSource sound)
+    {
+        sound.volume = Random.Range(0.5f, 0.7f);
+        sound.pitch = Random.Range(0.8f, 1f);
+        sound.Play();
+    }
+
+    void StopPlayingSound(AudioSource sound)
+    {
+        sound.Stop();
     }
 }

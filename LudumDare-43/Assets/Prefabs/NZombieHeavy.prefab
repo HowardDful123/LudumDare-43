@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4349319221293940}
   - component: {fileID: 58341852877400896}
-  - component: {fileID: 114639740828233422}
+  - component: {fileID: 114412502888449750}
   m_Layer: 0
   m_Name: heavyrange
   m_TagString: Untagged
@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073892775227388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.99, y: -0.46, z: -0.007123898}
+  m_LocalPosition: {x: 0.9, y: -4.1, z: -0.007123898}
   m_LocalScale: {x: 5.4195, y: 4.4452, z: 1}
   m_Children:
   - {fileID: 4349319221293940}
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &114639740828233422
+--- !u!114 &114412502888449750
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1317582496470814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba879fe7f40b524f857dde11258e1d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 42644fb985ccf514f97db6278e70b300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114869744359858086
@@ -156,6 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1224975e429c60947a71d1cdb32e3685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  baseTarget: {fileID: 0}
+  attackRange: 1.25
+  damage: 20
+  attackDelay: 1
 --- !u!212 &212435719677787308
 SpriteRenderer:
   m_ObjectHideFlags: 1
