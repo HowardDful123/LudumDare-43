@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour {
         {
             weaponlevelstat.text = "Shooting " + 6 + " Projectiles and lifestealing [MAXED]" ;
         }
-        fireratestat.text = "Firerate: Shooting every " + fireRate.ToString("F2") + " second";
+        fireratestat.text = "Shooting every " + fireRate.ToString("F2") + " second";
         if (Input.GetKeyDown("r"))
         {
             Reload();

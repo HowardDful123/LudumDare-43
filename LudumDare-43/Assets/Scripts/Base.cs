@@ -57,6 +57,6 @@ public class Base : MonoBehaviour {
     private void ResetColor()
     {
         SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
-        sr.color = new Color(1f, 0f, 0f, 1f);
+        sr.color = new Color(1f, 1f, 1f, 1f);
     }
 }

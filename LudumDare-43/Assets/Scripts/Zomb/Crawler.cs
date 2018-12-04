@@ -10,6 +10,7 @@ public class Crawler : MonoBehaviour {
     public int damage = 3;
     public float attackDelay = 1;
 
+    private AudioSource zombieGroan;
     private float timeElapsedColor;
     private bool isColorChanged;
     private float lastAttack;
@@ -32,6 +33,7 @@ public class Crawler : MonoBehaviour {
     private void Start()
     {
         baseTarget = GameObject.FindGameObjectWithTag("Base").GetComponent<Transform>();
+        zombieGroan = GameObject.FindGameObjectWithTag("Base").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -82,6 +84,7 @@ public class Crawler : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
+        PlaySound(zombieGroan);
         health -= damage;
         ChangeColor();
         if (health <= 0) Die();
@@ -131,4 +134,15 @@ public class Crawler : MonoBehaviour {
         sr.color = new Color(1f, 1f, 1f, 1f);
     }
 
+    void PlaySound(AudioSource sound)
+    {
+        sound.volume = Random.Range(0.4f, 0.7f);
+        sound.pitch = Random.Range(2f, 2.6f);
+        sound.Play();
+    }
+
+    void StopPlayingSound(AudioSource sound)
+    {
+        sound.Stop();
+    }
 }
