@@ -16,7 +16,6 @@ public class WaveSpawner : MonoBehaviour {
         public float rate;
     }
     public Text wavenumber;
-    public Text cardWaveNext;
     public Text cardCountD; 
     public Transform cardsStuffleft;
     public Transform cardsStuffMiddle;
@@ -49,7 +48,6 @@ public class WaveSpawner : MonoBehaviour {
 
     void Start()
     {
-        cardWaveNext.text = "Wave next: " + waves[nextWave].name;
         wavenumber.text = "Wave " + (nextWave+1) + " of " + "15";
         cardsStuffleft.GetComponent<normalSprite>().SpawnCard("normalcard");
         cardsStuffMiddle.GetComponent<normalSprite>().SpawnCard("normalcardMid");
@@ -91,7 +89,6 @@ public class WaveSpawner : MonoBehaviour {
         if (state != SpawnState.cardwaiting)
         {
             waveCountDown -= Time.deltaTime;
-            cardWaveNext.enabled = false;
             cardCountD.GetComponent<Text>().enabled = false;
         }
 
@@ -223,8 +220,6 @@ public class WaveSpawner : MonoBehaviour {
     {
         state = SpawnState.cardchoose;
         cardCountD.GetComponent<Text>().enabled = true;
-        cardWaveNext.text = "Next Wave: " + waves[nextWave].name;
-        cardWaveNext.enabled = true;
         if (waves[nextWave].name == "Nightmare")
         {
             nightcardsStuffleft.GetComponent<nightmareSprite>().SpawnLeftCard("nightmarecardL");
@@ -248,7 +243,6 @@ public class WaveSpawner : MonoBehaviour {
     {
         Debug.Log("Spawning Wave" + _wave.name);
         state = SpawnState.spawning;
-        cardWaveNext.enabled = false;
         for (int i = 0; i < _wave.count; i++)
         {
             Spawn(_wave.enemies[Random.Range(0,_wave.enemies.Length)]);

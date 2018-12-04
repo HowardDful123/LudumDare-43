@@ -10,6 +10,7 @@ public class NZombie : MonoBehaviour {
     public float attackDelay = 1;
     public float speed = 1f;
 
+    private AudioSource zombieGroan;
     private float timeElapsedColor;
     private bool isColorChanged;
     private float lastAttack;
@@ -32,6 +33,7 @@ public class NZombie : MonoBehaviour {
     void Start()
     {
         baseTarget = GameObject.FindGameObjectWithTag("Base").GetComponent<Transform>();
+        zombieGroan = GameObject.FindGameObjectWithTag("Base").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -83,6 +85,7 @@ public class NZombie : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
+        PlaySound(zombieGroan);
         health -= damage;
         ChangeColor();
         if (health <= 0) Die();
@@ -130,5 +133,17 @@ public class NZombie : MonoBehaviour {
     {
         SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
         sr.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+    void PlaySound(AudioSource sound)
+    {
+        sound.volume = Random.Range(0.4f, 0.7f);
+        sound.pitch = Random.Range(0.9f, 1.2f);
+        sound.Play();
+    }
+
+    void StopPlayingSound(AudioSource sound)
+    {
+        sound.Stop();
     }
 }
